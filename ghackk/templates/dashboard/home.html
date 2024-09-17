@@ -1,0 +1,65 @@
+{%  extends 'base.html'%}
+
+{% block heading %}FDASHBOARD{% endblock heading%}
+{% block css%}
+
+{%endblock%}
+
+{% block body %}
+
+<div class="container my-4">
+<form method="post" action="{% url 'search' %}" class="d-flex" role="search">{% csrf_token %}
+    <input class="form-control me-2" type="search" placeholder="Enter Name to Search" aria-label="Search" name="searched" id="search">
+    <button class="btn btn-outline-light bg-dark" type="submit" >Search</button>
+</form>
+</div>
+
+<div class="container d-flex my-4" style="justify-content: center;">
+    <a href="/newjobsheet"><button type="button" class="btn btn-primary">ADD NEW JOBSHEET</button></a>
+</div>
+
+<div class="container mt-4">
+    <div class="bd-example">
+        <table class="table table-borderless">
+            <thead style="background-color: blue;">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Client Id</th>
+            <th scope="col">Client Name</th>
+            <th scope="col">Contact Info</th>
+            <th scope="col">Received Data</th>
+            <th scope="col">Client Notes</th>
+            <th scope="col">Assigned Technician</th>
+            <th scope="col">Estimated Amount</th>
+            <th scope="col">Deadline</th>
+            <th scope="col">Status</th>
+            <th class="td"scope="col" colspan="5" style="width:18rem">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for job in jobs %}
+            <td scope="row"><b>{{forloop.counter}}</b></td>
+            
+            <td>#{{job.clientname}}-{{job.clientid}}</td>
+            <td>{{job.clientname}}</td>
+            <td>{{job.contact}}</td>
+            <td>{{job.rdate}}</td>
+            <td>{{job.cnotes}}</td>
+            <td>{{job.technician}}</td>
+            <td>{{job.amount}}</td>
+            <td>{{job.ddate}}</td>
+            <td>{{job.status}}</td>
+            <td><a href="/jobdata/{{job.clientid}}"><button id="v{{job.clientid}}" type="button" class="btn btn-info">view</button></a>
+                <a href="/editdata/{{job.clientid}}"><button id="e{{job.clientid}}" type="button" class="btn btn-dark">Edit</button></a>
+                <a href="delete/{{job.clientid}}"><button id="{{job.clientid}}" type="button" class="btn btn-danger">Delete</button></a></td>
+          </tr>
+            {% endfor %}
+          
+        </tbody>
+      
+        </table>
+      </div>
+</div>
+
+{% endblock %}

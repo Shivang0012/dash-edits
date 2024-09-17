@@ -1,0 +1,63 @@
+{%  extends 'base.html'%}
+
+{% block heading %}FDASHBOARD{% endblock heading%}
+{% block css%}
+
+{%endblock%}
+
+{% block body %}
+<div class="d-grid mt-2" style="padding-left: 9rem;">
+  <a href="/"><button class="btn btn-primary" type="submit">Back</button></a>
+</div>
+
+<div class="container my-4">
+   <!-- {% if search %}
+          <h1>you search for{{searched}}</h1>
+   {% else %}
+           <h1>not found</h1>
+   {% endif %} -->
+</div>
+<div class="container mt-4"></div>
+    <div class="bd-example">
+        <table class="table table-borderless">
+            <thead style="background-color: blue;">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Client Id</th>
+            <th scope="col">Client Name</th>
+            <th scope="col">Contact Info</th>
+            <th scope="col">Received Data</th>
+            <th scope="col">Client Notes</th>
+            <th scope="col">Assigned Technician</th>
+            <th scope="col">Estimated Amount</th>
+            <th scope="col">Deadline</th>
+            <th scope="col">Status</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for job in jobs %}
+            <th scope="row">{{forloop.counter}}</th>
+            
+            <td>#{{job.clientname}}-{{job.clientid}}</td>
+            <td>{{job.clientname}}</td>
+            <td>{{job.contact}}</td>
+            <td>{{job.rdate}}</td>
+            <td>{{job.rdate}}</td>
+            <td>{{job.cnotes}}</td>
+            <td>{{job.technician}}</td>
+            <td>{{job.amount}}</td>
+            <td>{{job.ddate}}</td>
+            <td>{{status}}</td>
+           
+          </tr>
+            {% endfor %}
+          
+        </tbody>
+      
+        </table>
+      </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html'%}
+
+{% block heading %}NEW JOB SHEET{% endblock heading%}
+
+{% block body%}
+<div class="d-grid mb-5 mt-4" style="padding-left: 10rem;">
+    <a href="/"><button class="btn btn-primary" type="submit">Back</button></a>
+</div>
+
+<div class="container " style="width: 1000px; border-radius: 2rem;">
+    <form name="newform" method="post" class=" my-10" action="/newjobsheet/">{% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><b>Client Name</b></label>
+            <input type="name" class="form-control" id="clientname" name="clientname" placeholder="Enter your name">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><b>Contact Info</b></label>
+            <input type="tel" class="form-control" id="contact" name="contact"
+                placeholder="Enter your 10-digitE phone number">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><b>Received Date</b></label>
+            <input type="date" class="form-control" id="rdate" name="rdate" placeholder="Enter date">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><b>Inventry Received</b></label>
+            <input type="inventry" class="form-control" id="inventry" name="inventry" placeholder="">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><b>Upload Inventry image</b></label>
+            <input type="file" class="form-control" id="imageInput" name="image" accept="image/*" placeholder="">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><b>Reported Issues</b></label>
+            <input type="text" class="form-control" id="issue" name="issue" row="3" placeholder="enter your issue">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><b>client Notes</b></label>
+            <input type="text" class="form-control" id="cnotes" name="cnotes" placeholder="enter your notes">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><b>Assigned Technician</b></label>
+            <input type="name" class="form-control" id="technician" name="technician" >
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><b>Estimated Amount</b></label>
+            <input type="amount" class="form-control" id="amount" name="amount" placeholder="Rs..">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><b>Deadline</b></label>
+            <input type="date" class="form-control" id="ddate" name="ddate" placeholder="enter your deadline">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><b>Status</b></label>
+            <input type="status" class="form-control" id="status" name="status">
+        </div>
+        <div class="d-grid mb-5">
+            <button class="btn btn-primary" type="submit">SAVE JOBSHEET</button>
+        </div>    
+    </form>
+</div>
+
+{% endblock %}

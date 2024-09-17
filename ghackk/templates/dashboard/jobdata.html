@@ -1,0 +1,70 @@
+{% extends 'base.html'%}
+
+{% block heading %}DATA OF {{ person.clientname}}{% endblock heading%}\
+{%block css%}
+<style>
+    .container{
+        margin-top: 5rem;
+    }
+    .themed-grid-col{
+        background-color:rgba(112.520718, 44.062154, 249.437846, .15);
+        border:1px solid rgba(112.520718, 44.062154, 249.43784)   ;
+        padding-top :.75rem;
+        padding-bottom: .75rem;
+    
+    }
+    .col-4 {
+    flex: 0 0 auto;
+    height:4rem;
+}
+
+</style>
+{% endblock%}
+{% block body%}
+<div class="d-grid mt-2" style="padding-left: 9rem;">
+    <a href="/"><button class="btn btn-primary" type="submit">Back</button></a>
+</div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-4 themed-grid-col"><b>Client Name :</b></div>
+        <div class="col-8 themed-grid-col"><span>{{person.clientname}}</span></div> 
+    </div>
+    <div class="row text-center">
+        <div class="col-4 themed-grid-col"><b>Contact Info :</b></div>
+        <div class="col-8 themed-grid-col">{{person.contact}}</div> 
+    </div>
+    <div class="row text-center">
+        <div class="col-4 themed-grid-col"><b>Received Data :</b></div>
+        <div class="col-8 themed-grid-col">{{person.rdate}}</div> 
+    </div>
+    <div class="row   text-center">
+        <div class="col-4 themed-grid-col"><b>Inventry Received :</b></div>
+        <div class="col-8 themed-grid-col">{{person.inventry}}</div> 
+    </div>
+    <div class="row text-center">
+        <div class="col-4 themed-grid-col"><b>Reported Issues :</b></div>
+        <div class="col-8 themed-grid-col">{{person.issue}}</div> 
+    </div>
+    <div class="row text-center">
+        <div class="col-4 themed-grid-col"><b>Client Notes :</b></div>
+        <div class="col-8 themed-grid-col">{{person.cnotes}}</div> 
+    </div>
+    <div class="row text-center">
+        <div class="col-4 themed-grid-col"><b>Assigned Technician :</b></div>
+        <div class="col-8 themed-grid-col">{{person.technician}}</div> 
+    </div>
+    <div class="row text-center">
+        <div class="col-4 themed-grid-col"><b>Estimated Amount :</b></div>
+        <div class="col-8 themed-grid-col">{{person.amount}}</div> 
+        
+    </div>
+    <div class="row text-center">
+        <div class="col-4 themed-grid-col"><b>Deadline :</b></div>
+        <div class="col-8 themed-grid-col">{{person.ddate}}</div> 
+    </div>
+    <div class="row text-center">
+        <div class="col-4 themed-grid-col"><b>Status :</b></div>
+        <div class="col-8 themed-grid-col">{{person.status}}</div> 
+    </div>
+</div>
+{% endblock %}
